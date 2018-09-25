@@ -1,5 +1,5 @@
-# You need to add script parameters to make this work.
-# In 'Edit Script' window, go to 'Script parameters' section, click 'Add...', and select your visualisation
+# You need to add a script parameter to make this work.
+# In 'Edit Script' window, go to 'Script parameters' section, click 'Add...', and select the visualisation you want to control
 
 from Spotfire.Dxp.Application.Visuals import *
 
