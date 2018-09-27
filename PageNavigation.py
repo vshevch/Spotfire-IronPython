@@ -1,5 +1,10 @@
 # Source Material: http://spotfired.blogspot.com/2014/08/toggle-page-navigation.html
 
+#Navigate to specific named page
+for page in Document.Pages:
+	if page.Title == 'Data  ADV':
+		Document.ActivePageReference = page
+      
 #Navigate to the first page
 Document.ActivePageReference = Document.Pages[0]
 
@@ -27,7 +32,6 @@ print Document.Pages[(Document.Pages.Count-1)].Title
 #Delete last page
 Document.ActivePageReference = Document.Pages.RemoveAt(Document.Pages.Count-1)
 
-
 #Delete all pages!
 print Document.Pages.Clear()
 
@@ -39,5 +43,4 @@ p.Title = "New Page"
 print Document.Pages.IndexOf(Document.ActivePageReference)
 
 #total pages
-
 print Document.Pages.Count
