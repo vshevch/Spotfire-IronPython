@@ -1,3 +1,5 @@
+# Original Document: https://spotfired.blogspot.com/2014/03/change-filters-programatically-from.html
+
 import Spotfire.Dxp.Application.Filters as filters
 
 myPanel = Document.ActivePageReference.FilterPanel
