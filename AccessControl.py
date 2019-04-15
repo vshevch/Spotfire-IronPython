@@ -1,3 +1,5 @@
+# Python script for checking if the User Name can see the next tab
+
 #Import Module(s)
 from System.Threading import Thread
 
