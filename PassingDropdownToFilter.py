@@ -1,4 +1,6 @@
-# Original Document: https://spotfired.blogspot.com/2014/03/change-filters-programatically-from.html
+# Document Used for Research: https://spotfired.blogspot.com/2014/03/change-filters-programatically-from.html
+
+# Filter #1 - Item Filter -
 
 import Spotfire.Dxp.Application.Filters as filters
 
@@ -17,7 +19,7 @@ date_value = Document.Properties["DateFilter"]
 lbFilter.Value = date_value
 
 
-# Filter #2
+# Filter #2 - List Box Filter -
 
 import Spotfire.Dxp.Application.Filters as filters
 #import Spotfire.Dxp.Application.Filters.ListBoxFilter
@@ -36,7 +38,20 @@ if strVals == None:
 else:
 	lbFilter.SetSelection(strVals)
 
-#if strVals!=String.Empty:
-#  lbFilter.SetSelection(strVals)
-#else:
-#  lbFilter.Reset()
+# Filter #3 - Check Box Filter -
+
+import Spotfire.Dxp.Application.Filters as filters
+#import Spotfire.Dxp.Application.Filters.ListBoxFilter
+#from Spotfire.Dxp.Application.Filters import FilterTypeIdentifiers
+from Spotfire.Dxp.Data import DataPropertyClass
+#from System import String
+
+myPanel = Document.ActivePageReference.FilterPanel
+myFilter= myPanel.TableGroups[0].GetFilter("Fiscal YTD Flag")
+lbFilter = myFilter.FilterReference.As[filters.CheckBoxFilter]()
+
+# Available Options
+lbFilter.Reset() # Resets the filter (includes all)
+lbFilter.Check("Y")
+lbFilter.Uncheck("Y")
+lbFilter.IncludeEmpty=False
