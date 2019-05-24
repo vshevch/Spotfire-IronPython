@@ -1,6 +1,6 @@
 # More Reading Matterial: 
-# * https://community.tibco.com/wiki/using-ironpython-call-script-tibco-spotfire
-# * http://tainguyen.me/blog/spotfire-calling-another-script-with-parameters-and-receive-returned-value/
+# https://community.tibco.com/wiki/using-ironpython-call-script-tibco-spotfire
+# http://tainguyen.me/blog/spotfire-calling-another-script-with-parameters-and-receive-returned-value/
 
 from Spotfire.Dxp.Application.Visuals import HtmlTextArea
 for vis in Document.ActivePageReference.Visuals:
