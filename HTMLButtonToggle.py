@@ -1,3 +1,5 @@
+# More Reading Matterial: http://tainguyen.me/blog/spotfire-calling-another-script-with-parameters-and-receive-returned-value/
+
 from Spotfire.Dxp.Application.Visuals import HtmlTextArea
 for vis in Document.ActivePageReference.Visuals:
 	if vis.Title == 'nbuttons':
