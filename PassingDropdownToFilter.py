@@ -47,6 +47,7 @@ from Spotfire.Dxp.Data import DataPropertyClass
 #from System import String
 
 myPanel = Document.ActivePageReference.FilterPanel
+# Here you can insert Select Filtering Scheme python code [see the code in the folder]
 myFilter= myPanel.TableGroups[0].GetFilter("Fiscal YTD Flag")
 lbFilter = myFilter.FilterReference.As[filters.CheckBoxFilter]()
 
