@@ -18,3 +18,13 @@ paramDict = {"MyParam":"Value1",
 	"Parameter2":"Value2"} 
 params = Dictionary[str, object](paramDict)
 Document.ScriptManager.ExecuteScript(scriptDef.ScriptCode, params)
+
+# !! Important !!
+# Your code will error out if it does not have a variable defined
+# This code will create a variable if no code is defined
+# Defining a variable in the target code will overwrite the parameter being passed
+
+try:
+    var # Name of the variable
+except NameError:
+    var = "variable value"
