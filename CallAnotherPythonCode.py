@@ -26,5 +26,5 @@ Document.ScriptManager.ExecuteScript(scriptDef.ScriptCode, params)
 
 try:
     var # Name of the variable
-except NameError:
+except NameError: # Empty variable generates NameError
     var = "variable value"
