@@ -42,7 +42,7 @@ input_date = current_date - timedelta(days=91)
 
 quart = ((input_date.month + 1) / 3 + 1) # Create Fiscal Quarter
 d_annee, restants = divmod(quart,5) # Normalise to 1 to 4 quarters
-currQuarter = int(max(d_an, restants)) 
+currQuarter = int(max(d_annee, restants)) 
 
 def q_start_end(quarter): # Create veriables and define Quarter's Start and End dates
     global q_start #month when the quarter starts
