@@ -62,3 +62,19 @@ q_start_end(currQuarter)
 
 dtFirstDay = datetime(input_date.year + d_year + int(d_annee), q_start, 1)
 dtLastDay = datetime(input_date.year + int(d_annee), q_end, 1) - timedelta(days=1)
+
+# YTD
+#========================================
+from datetime import datetime,timedelta, date
+
+current_date = datetime.now()
+
+if current_date.month <= 10:
+    high = datetime(current_date.year, 10, 31)
+    low = datetime(current_date.year - 1, 11, 1)
+elif current_date.month > 10:
+    high = datetime(current_date.year + 1, 10, 31)
+    low = datetime(current_date.year, 11, 1)
+    
+print(high)
+print(low)
