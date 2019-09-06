@@ -44,3 +44,8 @@ print Document.Pages.IndexOf(Document.ActivePageReference)
 
 #total pages
 print Document.Pages.Count
+
+# Go to tab with Specific Name
+for page in Application.Document.Pages:
+ if page.Title == NameOfTab:
+  Document.ActivePageReference = page
