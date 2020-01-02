@@ -24,7 +24,13 @@ Document.ScriptManager.ExecuteScript(scriptDef.ScriptCode, params)
 # This code will create a variable if no code is defined
 # Defining a variable in the target code will overwrite the parameter being passed
 
+# - Method #1 -
 try:
     var # Name of the variable
 except NameError: # Empty variable generates NameError
     var = "variable value"
+
+# - Method #2 -
+for variable in ["value_EN", "ROM", "value_FR"]: # variables to check
+	if variable not in locals(): 		 # if not local variable dictionary
+		locals()[variable] = None 	 # Create a variable
