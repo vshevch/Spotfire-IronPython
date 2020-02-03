@@ -1,0 +1,5 @@
+# Filter Data by List
+
+[Special Detail Dynamic French]=$map("'${SpecDetFR}'","OR [Special Detail Dynamic French]=")
+Special Detail Dynamic French <- Name of Column
+SpecDetFR <- Name of Document Property
