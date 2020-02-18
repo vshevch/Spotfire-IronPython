@@ -1,5 +1,14 @@
+# Max Date
+#========================
+from datetime import date
+dTable = Document.Data.Tables["kzhou_STAT"] # Define Date Table
+dColumn = dTable.Columns["task_available"]  # Define Date Column
+dDate = dColumn.RowValues.GetMaxValue().ValidValue
+mxDate = date(dDate.Year,dDate.Month,dDate.Day) 
+#----------------------------------------------
+
 # Previous Quarter Start and End Date 
-#=====================================
+#============================================
 from datetime import datetime,timedelta, date
 
 current_date = datetime.now()
@@ -9,9 +18,10 @@ currQuarter = int((input_date.month - 1) / 3 + 1)
 
 dtFirstDay = datetime(current_date.year, 3 * currQuarter - 2, 1)
 dtLastDay = datetime(current_date.year, 3 * currQuarter + 1, 1) - timedelta(days=1)
+#----------------------------------------------------------------------------------
 
 # Previous Month Start and End Date
-#===================================
+#=========================================
 from datetime import date, timedelta, date
 from Spotfire.Dxp.Data.DataType import Date
 
@@ -29,9 +39,30 @@ dtLastDay = get_last_day(date.today())
 # Used in a Range Filter
 LowVal = Date.Formatter.Parse(str(dtFirstDay))
 HighVal = Date.Formatter.Parse(str(dtLastDay))
+#---------------------------------------------
 
-# Previous Fiscal Quarter Start and End Date
-#============================================
+# Previous Month - Start and End Date
+#=========================================
+from datetime import date, timedelta, date
+from Spotfire.Dxp.Data.DataType import Date
+
+def get_first_day(dt):
+	delta = mxDate.isoweekday()+6
+	return dt - timedelta(delta)
+
+def get_last_day(dt):
+	delta = mxDate.isoweekday()
+	return dt - timedelta(delta)
+
+dtFirstDay = get_first_day(mxDate)
+dtLastDay = get_last_day(mxDate)
+
+LowVal = Date.Formatter.Parse(str(dtFirstDay))
+HighVal = Date.Formatter.Parse(str(dtLastDay))
+#---------------------------------------------
+
+# Previous Fiscal Quarter - Start and End Date
+#================================================================================
 # Code for determining Previous Fiscal Quarter with Fiscal Start Date in November
 # ex. Q1 - Nov 01 2018 to Jan 31 2019
 
@@ -62,9 +93,10 @@ q_start_end(currQuarter)
 
 dtFirstDay = datetime(input_date.year + d_year + int(d_annee), q_start, 1)
 dtLastDay = datetime(input_date.year + int(d_annee), q_end, 1) - timedelta(days=1)
+#---------------------------------------------------------------------------------
 
 # YTD
-#========================================
+#============================================
 from datetime import datetime,timedelta, date
 
 current_date = datetime.now()
@@ -78,3 +110,4 @@ elif current_date.month > 10:
     
 print(high)
 print(low)
+#--------------------------------------------
