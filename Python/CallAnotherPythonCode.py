@@ -1,13 +1,15 @@
-from Spotfire.Dxp.Application.Scripting import ScriptDefinition
-from System.Collections.Generic import Dictionary
-import clr
+# Call script without parameters
+def callScript(scpName, permStatus):
+	from Spotfire.Dxp.Application.Scripting import ScriptDefinition
+	from System.Collections.Generic import Dictionary
+	import clr
+	# Code
+	scriptDef = clr.Reference[ScriptDefinition]()
+	Document.ScriptManager.TryGetScript(scpName, scriptDef)
+	Document.ScriptManager.ExecuteScript(scriptDef.ScriptCode, Dictionary[str, object]())
+callScript("scrTester")
 
-scriptDef = clr.Reference[ScriptDefinition]()
-Document.ScriptManager.TryGetScript("fltResetDate", scriptDef) # fltResetDate should be replaced
-params = Dictionary[str, object]()
-Document.ScriptManager.ExecuteScript(scriptDef.ScriptCode, params)
-
-#Example on how to call a script (Another Example)
+# Call script with parameters
 from System.Collections.Generic import Dictionary
 from Spotfire.Dxp.Application.Scripting import ScriptDefinition
 import clr
